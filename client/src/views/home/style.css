@@ -1,0 +1,36 @@
+.home-view, .home-view A {
+    color: rgba(255,255, 255, .95);
+    text-decoration: none;
+    -webkit-text-stroke: 1px rgba(0,0,0,0.5); /* Adjust stroke width and color as needed */
+}
+.black-bar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25); /* semi-transparent black */
+    z-index: 1; /* make sure it's on top */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(255,255, 255, .25);
+}
+.black-bar.top {
+    top: 0;
+}
+.black-bar.bottom {
+    bottom: 0;
+}
+.top-bar div {
+     flex-grow: 1;
+    text-align: center;
+}
+
+.gear-icon {
+    color: white; /* change this to the color you want */
+    font-size: 1em; /* change this to the size you want */
+    z-index: 2; /* make sure it's on top */
+    fill: transparent; /* make the icon hollow */
+    stroke: white; /* set the color of the outline */
+    stroke-width: 0.75em; /* set the width of the outline */
+    cursor: pointer; /* change the cursor to a pointer when hovering over the icon */
+}

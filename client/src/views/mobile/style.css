@@ -1,0 +1,103 @@
+.mobile-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.mobile-indicator {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: row;
+
+}
+.mobile-mode {
+    position: absolute;
+    bottom: 0rem;
+    left: 1rem;
+}
+.mobile-recording {
+    position: absolute;
+    bottom: 50vh;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    margin-bottom: -50px;
+}
+.mobile-recording-text {
+    font-size: 1rem;
+    animation: blink 1s linear infinite;
+    padding-left: 0.5rem;
+
+}
+.mobile-settings {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    /* horizontal align elements */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.mobile-sliders {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    /* horizontal align elements */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mobile-disk {
+    position: absolute;
+    right: 1rem;
+    bottom: 5rem;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.mobile-settings-icon {
+    color: white; /* change this to the color you want */
+    font-size: 2rem; /* change this to the size you want */
+    fill: transparent; /* make the icon hollow */
+    stroke: white; /* set the color of the outline */
+    stroke-width: 1rem; /* set the width of the outline */
+    cursor: pointer; /* change the cursor to a pointer when hovering over the icon */
+}
+.mobile-disk-icon {
+    color: white; /* change this to the color you want */
+    font-size: 2rem; /* change this to the size you want */
+    fill: white; /* make the icon hollow */
+    cursor: pointer; /* change the cursor to a pointer when hovering over the icon */
+
+}
+.mobile-sliders-icon {
+    font-size: 1.75rem;
+}

@@ -1,0 +1,41 @@
+.custom-select-wrapper {
+    position: relative;
+    user-select: none;
+    width: 200px;
+    text-align: center;
+}
+
+.custom-select-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    /*height: 16.67vh;*/
+}
+
+.custom-select-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    /*background-color: #fff;*/
+    z-index: 10;
+}
+.custom-select-list.down {
+    top: 100%;
+}
+.custom-select-list.up {
+    bottom: 100%;
+}
+
+.custom-select-list div, .custom-select-list-up div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-select-list div:hover, .custom-select-list-up div:hover{
+    background-color: #f2f2f2;
+}
