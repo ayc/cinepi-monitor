@@ -10,6 +10,8 @@ const ViewportComponent = ({ src, grid, alt }) => {
         setFit(fit === 'contain' ? 'cover' : 'contain'); // toggle between 'contain' and 'cover'
     };
 
+    const newsrc = 'http://cinepi:8000/stream'
+
     return (
         <div className="viewport">
             {grid && <div className="grid">
@@ -23,7 +25,7 @@ const ViewportComponent = ({ src, grid, alt }) => {
                 <div></div>
                 <div></div>
             </div>}
-            <img className="img-fullscreen" style={{objectFit: fit}} src={src} alt={alt}/>
+            <img className="img-fullscreen" style={{objectFit: fit}} src={newsrc} alt={alt}/>
             <FitToggleButton toggleFit={toggleFit} isFitContain={fit === 'contain'}/> {/* pass the isFitContain prop */}
         </div>
     );
