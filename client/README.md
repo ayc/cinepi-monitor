@@ -12,3 +12,9 @@
 ## build
 1. `npm run build`
 
+## TODO
+1. add single connection manager
+2. authentication
+3. client should do preflight checkup to see if server is running
+4. define disk management workflow
+5. 
