@@ -18,7 +18,7 @@ const App = () => {
     }
 
     return (
-        <Router>
+        <Router basename="/cinepi-monitor">
             <div>
                 {/*{!showSettings && <FaCog className="gear-icon" onClick={() => setShowSettings(true)} />}*/}
                 <Routes>
