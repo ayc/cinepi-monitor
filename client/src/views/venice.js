@@ -1,11 +1,15 @@
 import React from 'react';
-import ViewportComponent from '../components/viewport';
+import {FaCog} from "react-icons/fa";
 
-const VeniceView = () => {
+const VeniceView = ({openSettings}) => {
     return (
         <div>
-            <h1>view familiar with japanese camera users</h1>
-            <ViewportComponent src="https://placehold.co/1920x1280/222222/ccc" alt=""/>
+            <div onClick={openSettings}>
+                <FaCog className="mobile-settings-icon"/>
+            </div>
+            <h1>
+                TODO: create a view familiar with users of certain japanese cameras
+            </h1>
         </div>
     );
 };

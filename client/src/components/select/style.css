@@ -1,8 +1,8 @@
 .custom-select-wrapper {
     position: relative;
     user-select: none;
-    width: 200px;
     text-align: center;
+    padding: 0 1rem;
 }
 
 .custom-select-header {
@@ -10,11 +10,20 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid #ccc;
     cursor: pointer;
     /*height: 16.67vh;*/
 }
-
+.custom-select-header > small {
+    font-size: 1rem;
+    color: gray;
+    font-family: "Helvetica Condensed", sans-serif;
+    padding-right: 0.25rem
+}
+.custom-select-header > div {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bolder;
+}
 .custom-select-list {
     position: absolute;
     left: 0;
@@ -23,6 +32,7 @@
     padding: 10px 0;
     /*background-color: #fff;*/
     z-index: 10;
+    background-color: rgba(64, 64, 64, 0.5);
 }
 .custom-select-list.down {
     top: 100%;

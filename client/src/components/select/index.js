@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 
-const Select = ({ options, defaultOption, onSelect, direction = 'down' }) => {
+const Select = ({ options, defaultOption, onSelect, title, direction = 'down' }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(defaultOption);
 
@@ -28,6 +28,7 @@ const Select = ({ options, defaultOption, onSelect, direction = 'down' }) => {
     return (
         <div className="custom-select-wrapper">
             <div className="custom-select-header" onClick={toggling}>
+                <small>{title}</small>
                 <div>
                     {selectedOption}
                 </div>
