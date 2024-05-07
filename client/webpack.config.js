@@ -53,6 +53,7 @@ function setApp(app, path, getResponse, patchResponse) {
 
 module.exports = {
     mode: 'development', // set mode to 'development' or 'production'
+    devtool: 'source-map',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
