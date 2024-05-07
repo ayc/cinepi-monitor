@@ -7,18 +7,25 @@
     position: fixed;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.25); /* semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
     z-index: 1; /* make sure it's on top */
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    border-bottom: 1px solid rgba(255,255, 255, .25);
+    justify-content: space-between;
+
+;
 }
 .black-bar.top {
     top: 0;
 }
 .black-bar.bottom {
     bottom: 0;
+}
+.black-bar > div > small {
+    font-size: 1rem;
+    color: gray;
+    font-family: "Helvetica Condensed", sans-serif;
+    padding-right: 0.25rem
 }
 .top-bar div {
      flex-grow: 1;

@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaWindowClose } from "react-icons/fa";
+
 import './Settings.css';
 
 const Settings = ({ onClose }) => {
     return (
         <div className="settings-overlay">
-            <button onClick={onClose}>Close</button>
+            <div className={"settings-close"} onClick={onClose}>
+                <FaWindowClose size={"2rem"} />
+            </div>
+
             <h1>Settings</h1>
-            {/* Add your settings here */}
+
+            {/* TODO: style and add settings! */}
             <nav>
                 <ul>
                     <li><Link to="/" onClick={onClose}>Home</Link></li>

@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React App</title>
+    <style>
+        #root-viewfinder {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+        #root-viewfinder img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
 </head>
 <body>
-<div id="root"></div>
-<script src="bundle.js"></script>
+    <div id="root"></div>
+    <script src="bundle.js"></script>
+    <div id="root-viewfinder">
+        <img id="root-mjpeg-stream" />
+    </div>
+    <script>
+        var firstUrl = 'htt://localhost:8000/stream';
+        var secondUrl = 'http://cinepi:8000/stream';
+        function loadImage(firstUrl, secondUrl, callback) {
+            var img = new Image();
+            img.onload = () => {
+                callback(firstUrl)
+            };
+            img.onerror = () => {
+                callback(secondUrl)
+            };
+            img.src = firstUrl
+        }
+        loadImage(firstUrl, secondUrl, (url) => {
+            const img = document.getElementById("root-mjpeg-stream");
+            img.src = url;
+        });
+
+        function toggleFullScreen() {
+
+            const elem = document.documentElement;
+            document.addEventListener("fullscreenchange", function() {
+                if (document.fullscreenElement) {
+                    console.log("Entered fullscreen mode");
+                } else {
+                    console.log("Exited fullscreen mode");
+                }
+            });
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        }
+        window.toggleFullscreen = toggleFullScreen;
+
+    </script>
 </body>
 </html>

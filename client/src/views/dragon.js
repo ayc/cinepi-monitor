@@ -1,11 +1,15 @@
 import React from 'react';
-import ViewportComponent from '../components/viewport';
+import { FaCog } from 'react-icons/fa';
 
-const DragonView = () => {
+const DragonView = ({openSettings}) => {
     return (
         <div>
-            <h1>view familiar with users of certain, color-themed american-made cameras</h1>
-            <ViewportComponent src="https://placehold.co/1920x1280/222222/ccc" alt=""/>
+            <div onClick={openSettings}>
+                <FaCog className="mobile-settings-icon"/>
+            </div>
+            <h1>
+                TODO: create a view familiar with users of certain, color-themed american-made cameras
+            </h1>
         </div>
     );
 };
