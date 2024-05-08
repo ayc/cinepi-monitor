@@ -11,15 +11,18 @@ import Settings from './settings/Settings';
 import './App.css';
 
 const App = () => {
+    console.log('inside App component');
     const [showSettings, setShowSettings] = useState(false);
 
+    console.log('something happen here???')
     const openSettings = () => {
         setShowSettings(true);
     }
 
     return (
-        <Router basename="/cinepi-monitor">
+        <Router>
             <div>
+                {console.log('inside App component return')}
                 {/*{!showSettings && <FaCog className="gear-icon" onClick={() => setShowSettings(true)} />}*/}
                 <Routes>
                     <Route path="/" element={<Home openSettings={openSettings} />} />
@@ -35,5 +38,6 @@ const App = () => {
 };
 
 const root = document.getElementById('root');
+console.log('before createRoot');
 createRoot(root).render(<App />);
 console.log('starting...')
