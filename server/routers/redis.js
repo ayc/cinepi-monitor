@@ -1,7 +1,7 @@
 const redis = require('redis');
 
 const client = redis.createClient({
-    host: '192.168.1.249',
+    host: 'localhost',
     port: 6379
 });
 
@@ -22,11 +22,6 @@ const client = redis.createClient({
 // awb
 // thumbnail_size
 
-
-client.on('error', function(error) {
-    console.error(error);
-});
-
 function listRedisKeys() {
     client.keys('*', function(err, keys) {
         if (err) {
@@ -38,4 +33,13 @@ function listRedisKeys() {
     });
 }
 
-listRedisKeys();
+client.on('connect', function() {
+    console.log('Connected to Redis');
+    listRedisKeys();
+});
+
+client.on('error', function(error) {
+    console.error(error);
+});
+
+console.log('Redis client created?');
