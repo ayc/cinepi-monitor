@@ -72,11 +72,13 @@ router.get('/framerate', async (req, res) => {
 // Color Gains
 router.post('/colorGains', async (req, res) => {
   const { red, blue } = req.body;
-  await cinepiController.setColorGains(red, blue);
+  const cg_rb = `${red},${blue}`;
+  await cinepiController.setColorGains(cg_rb);
   res.json({ red, blue });
 });
 router.get('/colorGains', async (req, res) => {
-  const { red, blue } = await cinepiController.getColorGains();
+  const cg_rb = await cinepiController.getColorGains();
+  const [red, blue] = cg_rb.split(',');
   res.json({ red, blue });
 });
 
