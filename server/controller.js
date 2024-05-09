@@ -93,19 +93,21 @@ class CinepiController {
   }
 
   _handleMessage(channel, message) {
-    console.log(`Message received: ${channel}`, message);
     switch (channel) {
       case this.CHANNEL_CONTROLS:
+        console.log(`Message received: ${channel}`, message);
         if (this._controlUpdateCallback) {
           this._controlUpdateCallback(message);
         }
         break;
       case this.CHANNEL_STATS:
+        // console.log(`Message received: ${channel}`, message);
         if (this._statsUpdateCallback) {
           this._statsUpdateCallback(message);
         }
         break;
       case this.CHANNEL_HISTOGRAM:
+        console.log(`Message received: ${channel}`, message);
         if (this._histogramUpdateCallback) {
           this._histogramUpdateCallback(message);
         }
