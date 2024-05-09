@@ -6,7 +6,7 @@ const router = express.Router();
 // Recording
 router.post('/recording', async (req, res) => {
   const { on } = req.body;
-  await cinepiController.getRecording(on);
+  await cinepiController.setRecording(on);
   res.json({ on });
 });
 router.get('/recording', async (req, res) => {
@@ -17,7 +17,7 @@ router.get('/recording', async (req, res) => {
 // ISO
 router.post('/iso', async (req, res) => {
   const { iso } = req.body;
-  await cinepiController.getIso(iso);
+  await cinepiController.setIso(iso);
   res.json({ iso });
 });
 router.get('/iso', async (req, res) => {
