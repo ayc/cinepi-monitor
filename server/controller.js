@@ -4,6 +4,10 @@ const redis = new Redis({
   host: 'localhost',
   port: 6379
 });
+const subscriber = new Redis({
+  host: 'localhost',
+  port: 6379
+});
 
 redis.on('connect', () => {
   console.log('Connected to Redis');
@@ -39,6 +43,7 @@ const CP_DEF_THUMBNAIL_SIZE = 3;
 class CinepiController {
   constructor(redis) {
     this.redis = redis;
+    this.subscriber = subscriber;
 
     this.CHANNEL_CONTROLS = 'cp_controls';
     this.CHANNEL_STATS = 'cp_stats';
@@ -63,8 +68,8 @@ class CinepiController {
 
     this.CONTROL_KEY_CAMERAINIT = "cam_init";
 
-    this.redis.on('message', this._handleMessage.bind(this));
-    this.redis.config('SET', 'notify-keyspace-events', 'KEA');
+    this.subscriber.on('message', this._handleMessage.bind(this));
+    this.subscriber.config('SET', 'notify-keyspace-events', 'KEA');
 
     // subscribe to channels set
     this._subscribeToChannel(this.CHANNEL_CONTROLS);
@@ -78,7 +83,7 @@ class CinepiController {
   }
 
   _subscribeToChannel(channel) {
-    this.redis.subscribe(channel, (err, count) => {
+    this.subscriber.subscribe(channel, (err, count) => {
       if (err) {
         console.error('Failed to subscribe to channel:', channel, err);
       } else {
